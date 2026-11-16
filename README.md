@@ -1,0 +1,81 @@
+# Site Radices Gestão de Pessoas
+
+Site institucional da **Radices Gestão de Pessoas** (www.radicesrh.com), pronto para publicar. Não precisa de instalação nem de servidor: é HTML, CSS e JavaScript puros.
+
+## Como publicar
+
+### Opção 1: hospedagem comum (Hostinger, Locaweb, HostGator, Registro.br, cPanel...)
+
+1. Acesse o **Gerenciador de Arquivos** (ou FTP) da hospedagem.
+2. Abra a pasta `public_html` (ou `www` / `htdocs`).
+3. Envie o arquivo `.zip` e use **Extrair** lá dentro, ou envie o conteúdo da pasta.
+4. Acesse radicesrh.com e confira.
+
+> **Importante:** o `index.html` deve ficar direto dentro de `public_html`, não dentro de uma subpasta.
+
+### Opção 2: Netlify (gratuito)
+
+1. Descompacte o `.zip`.
+2. Acesse [app.netlify.com/drop](https://app.netlify.com/drop) e arraste a pasta.
+3. Em **Domain settings**, conecte o domínio `radicesrh.com`.
+
+## Páginas
+
+| Arquivo | Conteúdo |
+|---|---|
+| `index.html` | Início (Por que Radices, Quem somos, Missão/Visão/Valores, Soluções) |
+| `recrutamento-e-selecao.html` | Recrutamento e Seleção |
+| `administracao-de-estagios.html` | Administração de Estágios |
+| `terceirizacao-de-folha.html` | Terceirização de Folha |
+| `controle-de-ponto.html` | Controle de Ponto e Jornada |
+| `perfil-comportamental.html` | Mapeamento de Perfil Comportamental |
+| `treinamentos.html` | Treinamentos Corporativos |
+| `nr-01-riscos-psicossociais.html` | NR-01 — Gestão de Riscos Psicossociais |
+| `contato.html` | Contato (WhatsApp, e-mail e formulário) |
+| `resultados.html` | Resultados (números da Radices e parceiros) |
+| `vagas/index.html` | Vagas (acessada em `/vagas`) |
+
+## Estrutura de arquivos
+
+```
+.
+├── index.html, *.html     páginas do site
+├── css/style.css          visual
+├── js/main.js             menu, animações e formulário
+├── img/                   imagens, logos e miniatura de compartilhamento
+│   └── parceiros/         logos dos parceiros (página de resultados)
+├── sitemap.xml            ajuda o Google a encontrar as páginas
+├── robots.txt             orientações para buscadores
+├── .htaccess              compressão e cache (hospedagens Apache)
+└── README.md              este arquivo
+```
+
+## Página de resultados
+
+Em `resultados.html`: os números da empresa (100 contratações efetivas, 200 estagiários administrados, 50 estagiários efetivados, 30 empresas atendidas) e a lista de parceiros. Para alterar um número, edite o valor em `data-contar` e o texto ao lado dele. Para incluir um parceiro, coloque a logo quadrada em `img/parceiros/` e copie uma linha `<li class="parceiro">` da página.
+
+## Avaliações do Google
+
+Os comentários de clientes aparecem em um **carrossel** que passa sozinho (a cada 5 segundos, pausa ao passar o mouse) na página inicial e na página de resultados. O perfil da empresa no Google (https://share.google/daaWmMgQKPGtYWg7B) é acessado pelos botões "Ver nossas avaliações no Google", pelo selo de 5 estrelas, pelo rodapé e pela página de contato. Para incluir ou editar um comentário, copie um bloco `<figure class="cartao avaliacao">` e repita nas duas páginas.
+
+## Destaque do eSocial
+
+O cartão "A única agência que realiza os lançamentos do estagiário no eSocial" aparece na página de Administração de Estágios e na seção "Por que Radices?" do início. O selo "eSocial" é um desenho próprio do site. Para usar a logo oficial, salve-a em `img/` e troque o bloco `<div class="esocial-selo">` pela tag `<img>`.
+
+## Vagas e Instagram
+
+- **Aba Vagas:** aparece no menu de todas as páginas e leva para `radicesrh.com/vagas`. Essa página (`vagas/index.html`) exibe a lista de vagas da plataforma dentro do próprio site, com o cabeçalho e o rodapé da Radices, e o endereço do navegador continua sendo o do seu domínio.
+- **Instagram:** o botão fica no rodapé de todas as páginas e leva para https://www.instagram.com/radices.rh/ em uma nova aba.
+
+## Miniatura de compartilhamento
+
+Ao enviar o site no WhatsApp, Instagram, LinkedIn, Facebook e e-mail, aparece uma prévia só com a logo da Radices, em fundo preto. A imagem é `img/og-radices-logo.jpg` (1200 x 630 px). Para trocá-la, substitua esse arquivo mantendo o mesmo nome e tamanho (se mudar o nome, atualize também as tags `og:image` e `twitter:image` das páginas).
+
+Os aplicativos guardam a prévia por um tempo. Se ela não atualizar depois de publicar, use o depurador do Facebook (developers.facebook.com/tools/debug) e clique em "Buscar novas informações", ou envie o link com um `?v=2` no final.
+
+## Observações
+
+- **Formulário de contato:** não usa servidor. Ele monta a mensagem e abre no WhatsApp (14) 99833-0022 ou no e-mail robsoncarvalho@radicesrh.com.
+- **`.htaccess`:** é um arquivo oculto, não apague. Ele tem 3 linhas comentadas para forçar HTTPS; remova o `#` delas somente depois de ativar o certificado SSL no domínio.
+- **Fontes:** vêm do Google Fonts (Plus Jakarta Sans e Inter), por isso precisam de internet para aparecer.
+- **Editar textos:** abra o `.html` da página em qualquer editor de texto e altere o conteúdo entre as tags.
